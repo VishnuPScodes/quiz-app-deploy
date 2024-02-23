@@ -36,7 +36,12 @@ const PORT = process.env.PORT;
 app.listen(PORT, async (req, res) => {
   try {
     console.log('here');
-    await mongoose.connect(process.env.URL);
+    await mongoose.connect(process.env.URL,
+       {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+    );
     console.log('listening to the port ' + PORT);
   } catch (error) {
     console.log(error);
